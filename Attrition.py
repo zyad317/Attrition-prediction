@@ -3,10 +3,13 @@ import pickle
 import numpy as np 
 import pandas as pd
 import json
+import os
 
-model = pickle.load(open("model.pkl","rb"))
-transformation = pickle.load(open("power_transformation.pkl","rb"))
-encoder = pickle.load(open("encoding.pkl", "rb"))
+base_dir = os.path.dirname(__file__)
+
+model = pickle.load(open(os.path.join(base_dir, "model.pkl"), "rb"))
+transformation = pickle.load(open(os.path.join(base_dir, "power_transformation.pkl"), "rb"))
+encoder = pickle.load(open(os.path.join(base_dir, "encoding.pkl"), "rb"))
 
 with open("feature_names.json", "r") as f:
     feature_names = json.load(f)
